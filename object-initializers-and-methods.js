@@ -71,13 +71,43 @@ function decodeWords(string){
 }
 console.log(decodeWords('craft block argon meter bells brown croon droop'));
 
+function createCharacter(name,nickname,race,origin,attack,defense){
+  return{
+    name,
+    nickname,
+    race,
+    origin,
+    attack,
+    defense,
+    describe: function(){
+      console.log(`${this.name} is a ${this.race} from ${this.origin}.`);    
+    },
+    evalueateFight: function(character){
+      let y=0;
+      let x=0;
+      if(this.defense>character.attack){
+        y=0;
+      }else{
+        y=character.attack-this.defense;
+      }
+      if(character.defense>this.attack){
+        x=0;
+      }else{
+        x=this.attack-character.defense;
+      }
+      console.log(`Your opponent takes ${x} damage and you receive ${y} damage.`);
+    }
+  };
+}
 
+let characters=[
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
+  createCharacter('Bilbo Baggins','bilbo', 'Hobbit', 'The Shire', 2, 1),
+  createCharacter('Frodo Baggins','frodo', 'Hobbit', 'The Shire', 3, 2),
+  createCharacter('Aragorn son of Arathorn','aragorn', 'Man', 'Dunnedain', 6, 8),
+  createCharacter('Legolas','legolas', 'Elf', 'Woodland Realm', 8, 5)
+];
 
+characters.push('Arwen Undomiel','arwen', 'Half-Elf', 'Rivendell',5,4);
 
-
-
-// daddy  first=d  d=5  cipher=fifthletter(y)
-// dadda  first=d  d=5  cipher=fifthletter(a)
-
-//craft block argon meter bells brown croon droop
 
